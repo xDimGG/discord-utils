@@ -1,0 +1,25 @@
+// https://discordapp.com/branding
+$white: #FFFFFF;
+$greyple: #99AAB5;
+$blurple: #7289DA;
+$dark: #2C2F33;
+$black: #23272A;
+
+@font-face {
+	font-family: 'Discord';
+	src: url('/src/font/Discord.eot');
+	src: url('/src/font/Discord.eot?#iefix') format('embedded-opentype'),
+			 url('/src/font/Discord.woff2') format('woff2'),
+			 url('/src/font/Discord.woff') format('woff'),
+			 url('/src/font/Discord.ttf') format('truetype'),
+			 url('/src/font/Discord.svg#Discord') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}

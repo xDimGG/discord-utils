@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>{{ page.title }}</title>
+
+  <!-- Meta Info (https://stackoverflow.com/a/18872319/7504056) -->
+  <!-- Search Engine -->
+  <meta name="description" content="{{ page.description }}">
+  <meta name="keywords" content="discord.js, utils, discord.js-utils, richembed generator, discord.js helper">
+  <link rel="author" href="https://twitter.com/{{ site.twitter }}" />
+  <!-- Facebook -->
+  <meta property="og:image" content="{{ site.image }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:see_also" content="{{ site.url }}">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="{{ site.twitter }}">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ site.image }}">
+  <!-- Google+ -->
+  <meta itemprop="name" content="{{ page.title }}">
+  <meta itemprop="description" content="{{ page.description }}">
+  <meta itemprop="image" content="{{ site.image }}">
+  <!-- Web App -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="D.JS-Utils">
+  <meta name="apple-mobile-web-app-title" content="D.JS-Utils">
+  <meta name="theme-color" content="{{ site.color }}">
+  <meta name="msapplication-navbutton-color" content="{{ site.color }}">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/">
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="/src/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/src/favicon/android-icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="72x72" href="/src/favicon/android-icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/src/favicon/android-icon-48x48.png">
+  <link rel="icon" type="image/png" sizes="36x36" href="/src/favicon/android-icon-36x36.png">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/src/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/src/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/src/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/src/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/src/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/src/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/src/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/src/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/src/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/favicon/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="{{ site.color }}">
+  <meta name="msapplication-TileImage" content="/src/favicon/ms-icon-144x144.png">
+
+  <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/app.css">
+</head>
+<body>
+  <div id="loader"><div class="loader"></div></div>
+  <nav class="navbar is-hidden-mobile">
+    <a class="navbar-item" href="https://dim.codes" target="_blank">Dim</a>
+    <a class="navbar-item logo" href="/">Discord.JS-Utils</a>
+    <a class="navbar-item" href="https://discord.dim.codes" target="_blank">Discord</a>
+  </nav>
+  <main>
+    {{ content }}
+  </main>
+  <script src="/src/js/jquery.js" charset="utf-8"></script>
+  <script src="/src/js/json.js" charset="utf-8"></script>
+  <script src="/src/js/app.js" charset="utf-8"></script>
+</body>
+</html>

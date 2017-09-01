@@ -1,0 +1,84 @@
+---
+---
+
+@import "bulma";
+@import "discord";
+@import "json";
+
+html {
+  background: $dark;
+}
+
+.section > .columns > .column {
+  background: $black;
+}
+
+.menu-list {
+  max-width: 200px;
+  margin: 0 auto;
+  a {
+    color: $blurple;
+    &:hover {
+      background: $black;
+      color: $white;
+    }
+    border-radius: 5px;
+  }
+}
+
+#loader {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  color: $white;
+  font-family: Whitney, sans-serif;
+}
+
+nav.navbar {
+  font-family: Discord;
+  user-select: none;
+  background: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    border-radius: 5px;
+    color: $white;
+    margin: 5px 20px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    &:hover {
+      background: $dark;
+      color: $blurple;
+    }
+  }
+  a.logo {
+    font-size: 1.8rem;
+  }
+  a:not(.logo) {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.hero-body {
+  text-align: center;
+  .title {
+    color: $white;
+  }
+  .subtitle {
+    color: darken($white, 20);
+    font-family: Roboto, sans-serif;
+  }
+}

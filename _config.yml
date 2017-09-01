@@ -1,0 +1,13 @@
+--- 
+color: "#23272A"
+defaults: 
+  - 
+    values: 
+      layout: default
+image: /src/favicon/icon.png
+name: Discord.JS-Utils
+permalink: pretty
+sass: 
+  style: compressed
+twitter: "@xDimGG"
+url: "https://discord.js-utils.dim.codes"
