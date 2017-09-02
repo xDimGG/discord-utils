@@ -1,1 +1,103 @@
-!function(n){"use strict";function a(a,t){var o=n.parseJSON(a.data("json")),l=s((t=n.extend({},this.defaults,t)).expanded);a.html('<ul class="json-container"></ul>'),a.find(".json-container").append(e([o],l))}function s(n){return n?"expanded":"expanded collapsed hidden"}function e(n,a){var s="";for(var e in n)n.hasOwnProperty(e)&&(s+=o(e,n[e],typeof n[e],a));return s}function t(a){return n("<div/>").text(a).html()}function o(a,s,o,l){var i="object",r="{",p="}";if(n.isArray(s)&&(i="array",r="[",p="]"),null===s)return'<li><span class="key">"'+t(a)+'": </span><span class="null">"'+t(s)+'"</span></li>';switch(o){case"object":var c='<li><span class="'+l+'"></span><span class="key">"'+t(a)+'": </span> <span class="open">'+r+'</span> <ul class="'+i+'">';return(c+=e(s,l))+'</ul><span class="close">'+p+"</span></li>";case"number":case"boolean":return'<li><span class="key">"'+t(a)+'": </span><span class="'+o+'">'+t(s)+"</span></li>";default:return'<li><span class="key">"'+t(a)+'": </span><span class="'+o+'">"'+t(s)+'"</span></li>'}}n.fn.jsonview=function(s,e){return this.each(function(){var t=n(this);"string"==typeof s?t.data("json",s):"object"==typeof s?t.data("json",JSON.stringify(s)):t.data("json",""),new a(t,e)})},n(document).on("click",".json-container .expanded",function(a){a.preventDefault(),a.stopPropagation();var s=n(this);s.parent().find(">ul").slideUp(100,function(){s.addClass("collapsed")})}),n(document).on("click",".json-container .expanded.collapsed",function(a){a.preventDefault(),a.stopPropagation();var s=n(this);s.removeClass("collapsed").parent().find(">ul").slideDown(100,function(){s.removeClass("collapsed").removeClass("hidden")})}),a.prototype.defaults={expanded:!0}}(window.jQuery);
+! function($) {
+
+  'use strict';
+
+  $.fn.jsonview = function(json, options) {
+    return this.each(function() {
+      var self = $(this);
+      if (typeof json == 'string') {
+        self.data('json', json);
+      } else if (typeof json == 'object') {
+        self.data('json', JSON.stringify(json))
+      } else {
+        self.data('json', '');
+      }
+      new JsonViewer(self, options);
+    });
+  };
+
+  function JsonViewer(self, options) {
+    var json = $.parseJSON(self.data('json'));
+    options = $.extend({}, this.defaults, options);
+    var expanderClasses = getExpanderClasses(options.expanded);
+    self.html('<ul class="json-container"></ul>');
+    self.find('.json-container').append(json2html([json], expanderClasses));
+  }
+
+  function getExpanderClasses(expanded) {
+    if (!expanded) return 'expanded collapsed hidden';
+    return 'expanded';
+  }
+
+  function json2html(json, expanderClasses) {
+    var html = '';
+    for (var key in json) {
+      if (!json.hasOwnProperty(key)) {
+        continue;
+      }
+
+      var value = json[key],
+        type = typeof json[key];
+
+      html = html + createElement(key, value, type, expanderClasses);
+    }
+    return html;
+  }
+
+  function encode(value) {
+    return $('<div/>').text(value).html();
+  }
+
+  function createElement(key, value, type, expanderClasses) {
+    var klass = 'object',
+        open = '{',
+        close = '}';
+
+    if ($.isArray(value)) {
+      klass = 'array';
+      open = '[';
+      close = ']';
+    }
+
+    if (value === null) {
+      return '<li><span class="key">"' + encode(key) + '": </span><span class="null">"' + encode(value) + '"</span></li>';
+    }
+
+    switch (type) {
+      case 'object':
+        var object = '<li><span class="' + expanderClasses + '"></span><span class="key">"' + encode(key) + '": </span> <span class="open">' + open + '</span> <ul class="' + klass + '">';
+        object = object + json2html(value, expanderClasses);
+        return object + '</ul><span class="close">' + close + '</span></li>';
+        break;
+      case 'number':
+      case 'boolean':
+        return '<li><span class="key">"' + encode(key) + '": </span><span class="' + type + '">' + encode(value) + '</span></li>';
+      default:
+        return '<li><span class="key">"' + encode(key) + '": </span><span class="' + type + '">"' + encode(value) + '"</span></li>';
+        break;
+    }
+  }
+
+  $(document).on('click', '.json-container .expanded', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var $self = $(this);
+    $self.parent().find('>ul').slideUp(100, function() {
+      $self.addClass('collapsed');
+    });
+  });
+
+  $(document).on('click', '.json-container .expanded.collapsed', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var $self = $(this);
+    $self.removeClass('collapsed').parent().find('>ul').slideDown(100, function() {
+      $self.removeClass('collapsed').removeClass('hidden');
+    });
+  });
+
+  JsonViewer.prototype.defaults = {
+    expanded: true
+  };
+
+}(window.jQuery);
