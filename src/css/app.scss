@@ -3,7 +3,6 @@
 
 @import "bulma";
 @import "discord";
-@import "json";
 
 html {
   background: $dark;
@@ -29,6 +28,51 @@ html {
   }
 }
 
+#submit, h2.subtitle.is-4 {
+  text-align: center;
+  color: $white;
+}
+
+.button.is-primary {
+  background: $black;
+  color: darken($white, 20);
+  transition: .2s color, .2s background;
+}
+
+.button.is-primary:hover {
+  background: darken($black, 20);
+  color: $white;
+}
+
+#message {
+  min-height: 100px;
+}
+
+#message, input.input {
+  background: $black;
+  margin: 10px 0;
+  color: $white;
+  border: 1px solid darken($white, 50);
+  &:focus {
+    border: 1px solid $white;  
+  }
+}
+
+#youtube {
+  margin-top: 20px;
+  text-align: center;
+  display: block;
+}
+
+a {
+  padding: 5px;
+  color: $white;
+}
+
+a:hover {
+  color: darken($white, 20);
+}
+
 #loader {
   z-index: 1;
   position: fixed;
@@ -40,11 +84,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 body {
   color: $white;
-  font-family: Whitney, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 nav.navbar {
@@ -73,6 +118,21 @@ nav.navbar {
     display: flex;
     justify-content: center;
   }
+}
+
+textarea:last-child {
+  margin-top: 20px;
+}
+
+textarea.textarea {
+  font-family: Roboto;
+  background-color: $black;
+  color: $white;
+  text-align: center;
+}
+
+textarea.textarea.is-primary {
+  border-color: $white;
 }
 
 .hero-body {
