@@ -37,11 +37,10 @@ html {
   background: $black;
   color: darken($white, 20);
   transition: .2s color, .2s background;
-}
-
-.button.is-primary:hover {
-  background: darken($black, 20);
-  color: $white;
+  &:hover {
+    background: darken($black, 20);
+    color: $white;
+  }
 }
 
 #message {
@@ -53,6 +52,7 @@ html {
   margin: 10px 0;
   color: $white;
   border: 1px solid darken($white, 50);
+  text-align: left;
   &:focus {
     border: 1px solid $white;  
   }
@@ -67,10 +67,9 @@ html {
 a {
   padding: 5px;
   color: $white;
-}
-
-a:hover {
-  color: darken($white, 20);
+  &:hover {
+    color: darken($white, 20);
+  }
 }
 
 #loader {
