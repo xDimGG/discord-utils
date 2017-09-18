@@ -64,16 +64,20 @@ $(() => {
     };
     $('#submit > .button').on('click', () => {
       const data = {
-        username: $('#webhook_username').val(),
-        icon_url: $('#webhook_avatar').val(),
-		    attachments: [{
-          author_icon: $('#author_avatar').val(),
-          author_name: $('#author_username').val(),
+        username: $('#webhook_name').val(),
+        icon_url: $('#webhook_icon').val(),
+        attachments: [{
+          image_url: $('#image').val(),
+          thumb_url: $('#thumb_url').val(),
+          footer: $('#footer').val(),
+          footer_icon: $('#footer_icon').val(),
           color: $('#color').val(),
-          fields: [{
-            title: $('#title').val(),
-            value: $('#message').val()
-          }]
+          text: $('#text').val(),
+          title: $('#title').val(),
+          title_link: $('#title_link').val(),
+          author_name: $('#author_name').val(),
+          author_link: $('#author_link').val(),
+          author_icon: $('#author_icon').val()
         }]
       };
       $.ajax({

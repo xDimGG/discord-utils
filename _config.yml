@@ -5,9 +5,9 @@ defaults:
     values:
       layout: default
 image: /src/favicon/icon.jpg
-name: Discord.JS-Utils
+name: Discord Utils
 permalink: pretty
 sass:
   style: compressed
 twitter: "@xDimGG"
-url: "https://discord.js-utils.dim.codes"
+url: "https://utils.dim.codes"

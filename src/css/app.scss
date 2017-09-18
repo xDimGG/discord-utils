@@ -43,11 +43,12 @@ html {
   }
 }
 
-#message {
+#text {
+  display: inline-flex;
   min-height: 100px;
 }
 
-#message, input.input {
+#text, input.input {
   background: $black;
   margin: 10px 0;
   color: $white;
@@ -119,18 +120,12 @@ nav.navbar {
   }
 }
 
-textarea:last-child {
+textarea.textarea.is-primary {
   margin-top: 20px;
-}
-
-textarea.textarea {
   font-family: Roboto;
   background-color: $black;
   color: $white;
   text-align: center;
-}
-
-textarea.textarea.is-primary {
   border-color: $white;
 }
 

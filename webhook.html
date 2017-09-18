@@ -4,20 +4,33 @@ description: Send WebHooks to Discord to create fancy messages
 ---
 <section class="section">
   <div class="container">
-    <div class="columns">
+    <div class="columns is-multiline">
       <div class="column is-6">
         <h2 class="subtitle is-4">WebHook Info</h2>
         <input type="text" class="input" id="url" placeholder="WebHook URL">
-        <input type="text" class="input" id="webhook_username" placeholder="WebHook Username" data-lpignore="true">
-        <input type="text" class="input" id="webhook_avatar" placeholder="WebHook Avatar URL">
+        <input type="text" class="input" id="webhook_name" placeholder="WebHook Name" data-lpignore="true">
+        <input type="text" class="input" id="webhook_icon" placeholder="WebHook Icon URL">
       </div>
       <div class="column is-6">
-        <h2 class="subtitle is-4">Message Info</h2>
-        <input type="title" class="input" id="title" placeholder="Title">
-        <textarea class="textarea" id="message" placeholder="Content" maxlength="2048"></textarea>
+        <h2 class="subtitle is-4">Message Content</h2>
+        <textarea class="textarea" id="text" placeholder="Content (The Only Required Field) (Besides URL, Obiously)" maxlength="2048"></textarea>
         <input type="text" class="input" id="color" placeholder="Hex Color">
-        <input type="text" class="input" id="author_username" placeholder="Author Username" data-lpignore="true">
-        <input type="text" class="input" id="author_avatar" placeholder="Author Avatar URL">
+        <input type="text" class="input" id="thumbnail" placeholder="Thumbnail URL">
+        <input type="text" class="input" id="image" placeholder="Image URL">
+      </div>
+      <div class="column is-6">
+        <h2 class="subtitle is-4">Message Title</h2>
+        <input type="title" class="input" id="title" placeholder="Title">
+        <input type="title" class="input" id="title_link" placeholder="Title Link">
+        <input type="text" class="input" id="author_name" placeholder="Author Name" data-lpignore="true">
+        <input type="text" class="input" id="author_link" placeholder="Author Link">
+        <input type="text" class="input" id="author_icon" placeholder="Author Icon URL">
+      </div>
+      <div class="column is-6">
+        <h2 class="subtitle is-4">Message Footer</h2>
+        <input type="text" class="input" id="footer" placeholder="Footer">
+        <input type="text" class="input" id="footer_icon" placeholder="Footer Icon URL">
+        <!-- <input type="text" class="input" id="author_icon" placeholder="Author Icon URL"> -->
       </div>
     </div>
     <div id="submit">
