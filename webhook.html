@@ -10,10 +10,11 @@ description: Send WebHooks to Discord to create fancy messages
         <input type="text" class="input" id="url" placeholder="WebHook URL">
         <input type="text" class="input" id="webhook_name" placeholder="WebHook Name" data-lpignore="true">
         <input type="text" class="input" id="webhook_icon" placeholder="WebHook Icon URL">
+        <textarea class="textarea" id="content" placeholder="Message Content" maxlength="2000"></textarea>
       </div>
       <div class="column is-6">
-        <h2 class="subtitle is-4">Message Content</h2>
-        <textarea class="textarea" id="text" placeholder="Content (The Only Required Field) (Besides URL, Obiously)" maxlength="2048"></textarea>
+        <h2 class="subtitle is-4">Message Embed</h2>
+        <textarea class="textarea" id="text" placeholder="Embed Content" maxlength="2048"></textarea>
         <input type="text" class="input" id="color" placeholder="Hex Color">
         <input type="text" class="input" id="thumbnail" placeholder="Thumbnail URL">
         <input type="text" class="input" id="image" placeholder="Image URL">

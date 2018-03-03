@@ -63,28 +63,41 @@ $(() => {
       });
     };
     $('#submit > .button').on('click', () => {
-      const data = {
-        username: $('#webhook_name').val(),
-        icon_url: $('#webhook_icon').val(),
-        attachments: [{
-          image_url: $('#image').val(),
-          thumb_url: $('#thumb_url').val(),
-          footer: $('#footer').val(),
-          footer_icon: $('#footer_icon').val(),
-          color: $('#color').val(),
-          text: $('#text').val(),
-          title: $('#title').val(),
-          title_link: $('#title_link').val(),
-          author_name: $('#author_name').val(),
-          author_link: $('#author_link').val(),
-          author_icon: $('#author_icon').val()
-        }]
+      const embed = {
+        author: {
+          name: $('#author_name').val(),
+          url: $('#author_link').val(),
+          icon_url: $('#author_icon').val(),
+        },
+        color: parseInt($('#color').val(), 16),
+        description: $('#text').val(),
+        title: $('#title').val(),
+        url: $('#title_link').val(),
+        image: { url: $('#image').val() },
+        thumbnail: { url: $('#thumb_url').val() },
+        footer: {
+          text: $('#footer').val(),
+          icon_url: $('#footer_icon').val(),
+        },
       };
+      const props = [];
+      for (const val of Object.values(embed)) {
+        if (typeof val === 'string')
+          props.push(val);
+        else
+          for (const v of Object.values(val))
+            props.push(v);
+      }
       $.ajax({
         type: 'POST',
-        url: `${$('#url').val()}/slack`,
+        url: $('#url').val(),
         crossDomain: true,
-        data: JSON.stringify(data),
+        data: JSON.stringify({
+          content: $('#content').val(),
+          username: $('#webhook_name').val(),
+          avatar_url: $('#webhook_icon').val(),
+          embeds: props.some(Boolean) ? [embed] : undefined,
+        }),
         success: success => {
           alert('WebHook Sent');
           console.log(success);
@@ -96,4 +109,16 @@ $(() => {
       });
     });
   }
+  // else if (path === '/react') {
+  //   const emojis = fetch('https://raw.githubusercontent.com/iamcal/emoji-data/master/emoji.json')
+  //     .then(res => res.json())
+  //     .then(emojis => {
+  //       for (const emoji of emojis) {
+  //         const el = document.createElement('option');
+  //         el.value = emoji.unified;
+  //         el.appendChild(document.createTextNode(eval(`\\u${emoji.unified}`)));
+  //         document.querySelector('select').appendChild(el);
+  //       }
+  //     });
+  // }
 });
