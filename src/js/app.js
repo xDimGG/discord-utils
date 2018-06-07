@@ -1,6 +1,6 @@
 $(() => {
 	$('#loader').fadeOut(750);
-	const path = location.pathname.replace(/\/$/, '').toLowerCase();
+	const path = location.pathname.replace(/\/(discord-utils\/)?$/, '').toLowerCase();
 	if (path === '/emojify') {
 		const emojiMap = {
 			a: '🇦',
